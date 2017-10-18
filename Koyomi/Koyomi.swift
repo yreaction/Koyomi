@@ -187,7 +187,7 @@ final public class Koyomi: UICollectionView {
     }
     public var lineView: LineView = .init()
     
-    public var enablePreviousDate: Bool = false 
+    public var enablePreviousDate: Bool = false
     
     @IBInspectable public var isHiddenOtherMonth: Bool = false
     
@@ -411,6 +411,8 @@ private extension Koyomi {
         let date = model.date(at: indexPath)
         if date < Date() {
             enablePreviousDate = false
+        } else {
+            enablePreviousDate = true
         }
         if indexPath.section == 0 {
             
