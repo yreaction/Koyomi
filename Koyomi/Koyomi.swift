@@ -409,7 +409,8 @@ private extension Koyomi {
         let postion: ContentPosition
         
         let date = model.date(at: indexPath)
-        if date < Date() {
+        let currentDate = Date().addingTimeInterval(TimeInterval(60*60*24))
+        if date < currentDate() {
             enablePreviousDate = false
         } else {
             enablePreviousDate = true
