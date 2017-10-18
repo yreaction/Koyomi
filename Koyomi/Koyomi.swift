@@ -504,9 +504,6 @@ private extension Koyomi {
         cell.textColor = {
             if isSelected {
                 return calendarDelegate?.koyomi?(self, selectionTextColorForItemAt: indexPath, date: date) ?? textColor
-            }else if !enablePreviousDate {
-                let color = calendarDelegate?.koyomi?(self, selectionTextColorForItemAt: indexPath, date: date) ?? textColor
-                return color.withAlphaComponent(0.3)
             } else {
                 return textColor
             }
@@ -526,6 +523,12 @@ private extension Koyomi {
         }
         if let font = font {
             cell.setContentFont(fontName: font.fontName, size: font.pointSize)
+        }
+        
+        if !enablePreviousDate {
+            cell.alpha = .35
+        } else {
+            cell.alpha  = 1
         }
         
         cell.configureAppearanse(of: style, withColor: selectionColor, backgroundColor: backgroundColor, isSelected: isSelected)
