@@ -411,7 +411,7 @@ private extension Koyomi {
         let date = model.date(at: indexPath)
         let nowDate = Date().addingTimeInterval(TimeInterval(60*60*24))
 
-        if let currentDate = selectedDate, date < currentDate {
+        if let currentDate = selectedDate?.addingTimeInterval(TimeInterval(60*60*25*(-1))), date < currentDate {
             enablePreviousDate = false
         } else if date < nowDate {
             enablePreviousDate = false
