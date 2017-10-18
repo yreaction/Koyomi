@@ -525,13 +525,15 @@ private extension Koyomi {
             cell.setContentFont(fontName: font.fontName, size: font.pointSize)
         }
         
-        if !enablePreviousDate {
-            cell.alpha = 0.35
-        } else {
-            cell.alpha  = 1
-        }
+        
         
         cell.configureAppearanse(of: style, withColor: selectionColor, backgroundColor: backgroundColor, isSelected: isSelected)
+        
+        if !enablePreviousDate {
+            cell.textColor = cell.textColor.withAlphaComponent(0.3)
+        } else {
+            cell.textColor = cell.textColor.withAlphaComponent(1)
+        }
     }
 }
 
