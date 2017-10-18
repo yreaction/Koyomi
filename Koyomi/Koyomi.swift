@@ -187,6 +187,8 @@ final public class Koyomi: UICollectionView {
     }
     public var lineView: LineView = .init()
     
+    public var enablePreviousDate: Bool = false 
+    
     @IBInspectable public var isHiddenOtherMonth: Bool = false
     
     // Layout properties
@@ -407,7 +409,9 @@ private extension Koyomi {
         let postion: ContentPosition
         
         let date = model.date(at: indexPath)
-        
+        if date < Date() {
+            enablePreviousDate = false
+        }
         if indexPath.section == 0 {
             
             // Configure appearance properties for week cell
@@ -498,6 +502,9 @@ private extension Koyomi {
         cell.textColor = {
             if isSelected {
                 return calendarDelegate?.koyomi?(self, selectionTextColorForItemAt: indexPath, date: date) ?? textColor
+            }else if !enablePreviousDate {
+                let color = calendarDelegate?.koyomi?(self, selectionTextColorForItemAt: indexPath, date: date) ?? textColor
+                return color.withAlphaComponent(0.3)
             } else {
                 return textColor
             }
