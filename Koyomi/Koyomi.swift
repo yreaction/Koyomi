@@ -526,7 +526,7 @@ private extension Koyomi {
         }
         
         if !enablePreviousDate {
-            cell.alpha = .35
+            cell.alpha = 0.35
         } else {
             cell.alpha  = 1
         }
