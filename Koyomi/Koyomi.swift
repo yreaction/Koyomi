@@ -156,11 +156,11 @@ final public class Koyomi: UICollectionView {
     public var style: KoyomiStyle = .standard {
         didSet {
             dayBackgrondColor  = style.colors.dayBackgrond
-            weekBackgrondColor = style.colors.weekBackgrond
+            weekBackgrondColor = style.colors.dayBackgrond
             weekColor = style.colors.week
-            weekdayColor = style.colors.weekday
+            weekdayColor = style.colors.week
             holidayColor = style.colors.holiday
-            otherMonthColor = style.colors.otherMonth
+            otherMonthColor = style.colors.week
             backgroundColor = style.colors.separator
             sectionSeparator.backgroundColor = style.colors.separator
         }
