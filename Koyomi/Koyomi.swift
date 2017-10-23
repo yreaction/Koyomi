@@ -159,8 +159,8 @@ final public class Koyomi: UICollectionView {
             weekBackgrondColor = style.colors.dayBackgrond
             weekColor = style.colors.week
             weekdayColor = style.colors.week
-            holidayColor = style.colors.holiday
-            otherMonthColor = style.colors.week
+            holidayColor = (style.colors.week, style.colors.week)
+            otherMonthColor = style.colors.otherMonth
             backgroundColor = style.colors.separator
             sectionSeparator.backgroundColor = style.colors.separator
         }
